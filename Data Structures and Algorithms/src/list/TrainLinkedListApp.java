@@ -5,6 +5,10 @@ public class TrainLinkedListApp {
 	LinkedListPOJO<TrainCar> train = new LinkedListPOJO<TrainCar>();
 
 	public static void main(String[] args) {
+		
+		long start = System.currentTimeMillis();
+		System.out.println("start: " + start);
+		
 		TrainLinkedListApp app = new TrainLinkedListApp();
 		app.buildInitialTrain();
 				
@@ -28,6 +32,10 @@ public class TrainLinkedListApp {
 
 		//print out the train size
 		System.out.println("After Last Stop train size: " + app.trainSize());
+		
+		long end = System.currentTimeMillis();
+		System.out.println("end: " + end);
+		System.out.println("Time: " + (end- start));
 	}
 	
 	private int trainSize() {
@@ -46,6 +54,9 @@ public class TrainLinkedListApp {
 		TrainCar car8 = new TrainCar(CarType.FLATBED, "Empty Shipping Container");
 		TrainCar car9 = new TrainCar(CarType.HOPPER, "Wheat Grain");
 		TrainCar car10 = new TrainCar(CarType.HOPPER, "Coal");
+		TrainCar car11 = new TrainCar(CarType.TANKER, "Crude Oil #1");
+		TrainCar car12 = new TrainCar(CarType.TANKER, "Crude Oil #2");
+		TrainCar car13 = new TrainCar(CarType.TANKER, "Crude Oil #3");
 		
 		//connect the cars
 		train.add(car1);
@@ -58,6 +69,9 @@ public class TrainLinkedListApp {
 		train.add(car8);
 		train.add(car9);
 		train.add(car10);
+		train.add(car11);
+		train.add(car12);
+		train.add(car13);
 		
 		//test out the find and get
 		//see if we can find the position of the paper box car and then get it
