@@ -43,12 +43,12 @@ public class LinkedListPOJO<X> {
 		
 		Node currentNode = first;
 		for (int i = 1; i < size() && currentNode != null; i++) {
-			// check to see if position exsist
+			// check to see if position exist
 			if(i == position) {
 				return currentNode.getNodeItem();
 			}
 			// if not get the next node
-			currentNode.getNextNode();
+			currentNode = currentNode.getNextNode();
 		}
 		// if we didnt find it then return null
 		return null;
@@ -68,7 +68,7 @@ public class LinkedListPOJO<X> {
 				return i;
 			}
 			// if not, get the next node
-			currentNode.getNextNode();
+			currentNode = currentNode.getNextNode();
 		}
 		// return -1 if nothing found.
 		return -1;
@@ -95,13 +95,13 @@ public class LinkedListPOJO<X> {
 		if (position > size() ) {
 			throw new IllegalStateException("inserting index larger that linked list size.");
 		}
-		// |0|1|2|3|4|5|
-		Node currentNode = this.first;
+		Node currentNode = first;
 		
 		// start at 1 because we are already on the first node
 		for (int i = 1; i < position && currentNode != null; i++) {
 				currentNode = currentNode.getNextNode();
 		}
+		
 		// severs the link chain and reconnects it with new nodes
 		Node newNodeItem = new Node(item);
 		Node nextNode = currentNode.getNextNode();
@@ -115,30 +115,25 @@ public class LinkedListPOJO<X> {
 	
 	public X removeAt(int position) {
 		// check to see if there are enough nodes for the position
-		if (position > size() ) {
+		if (first == null ) {
 			throw new IllegalStateException("removing index larger that linked list size.");
 		}
-		// |0|1|2|3|4|5|
-		Node currentNode = this.first;
+
+		Node currentNode = first;
+		Node prevNode = first;
 		// start at 1 because we are already on the first node
 		// this will get the node before we the node we want to remove
 		for (int i = 1; i < position && currentNode != null; i++) {
+				prevNode = currentNode;
 				currentNode = currentNode.getNextNode();
 		}
-
-		// this will get the node before we the node we want to remove
-		Node nodeToBeRemoved = currentNode.getNextNode();
 		
-		// this will get the node after the node that is being remove to connect
-		// it to the node before the node we wanted to remove.
-		Node nextNode = nodeToBeRemoved.getNextNode();
-		// severs the link chain and reconnects it with new node
-		currentNode.setNextNode(nextNode);
-		
-		// update out node count
+		// now update the pointers and throw away the old first
+		X nodeItem = currentNode.getNodeItem();
+		prevNode.setNextNode(currentNode.getNextNode());
 		nodeCount--;
-		
-		return nodeToBeRemoved.getNodeItem();
+		return nodeItem;
+
 	}
 	
 	
