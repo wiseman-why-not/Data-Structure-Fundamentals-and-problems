@@ -75,7 +75,7 @@ public class TrainLinkedListApp {
 		
 		//test out the find and get
 		//see if we can find the position of the paper box car and then get it
-		int position = train.find(car3);
+		int position = train.indexOf(car3);
 		TrainCar paperCar = train.get(position);
 		System.out.println("Train is built correctly. found and retrieved the paper car at position: " + paperCar + " - " + position);
 
