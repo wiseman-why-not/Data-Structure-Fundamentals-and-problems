@@ -1,0 +1,156 @@
+===================================================================================================================================
+													BIG  O
+===================================================================================================================================
+	Big O - Is a mathematical notation that describes the limiting behavior 
+			of a function when the argument tends towards a particular value or infinity.
+		
+		- We use Big O to describe the performance of an algorithm.
+		-
+	
+	O(1) - constant time. it doesnt matter how big the array is, it takes a constant time, it may differ from machine to machine
+		   or itself, we dont care about that. methods will take one operation at a time. wether is 1 or 1 million. it will take
+		   a constant time.
+		   
+		   when adding operations like O(1) together. we dont care that its constant
+		   							example
+		   ------------------------------------------------------------------------
+		     public void log(int[] numbers) {
+		     	System.out.println(numbers[0];
+		     	System.out.println(numbers[1_000_000];
+			 }
+		   ------------------------------------------------------------------------
+
+	O(n) - Linear. As (n) represent the size of the input. as (n) grows, so does the cost of this input. it grow linearly at the same rate.
+
+		
+		- Linear search: Iterate over an array with a for loop one at a time. its called a linear search because it runs in linear time
+
+				   							example
+		   ------------------------------------------------------------------------
+		     for loops, forEach loop, while, do, do-while loops. All linear.
+		      we still loop through all items in the array.
+		    
+		    * public void log(int[] numbers) {
+		     	 for (int i = 0; i < numbers.length; i++) {
+		     	 System.out.println(numbers[i]);
+			  }
+			  
+			* System.out.println();  // O(1)
+			  for (int number: numbers) {  // O(n)
+			  	System.out.println(numbers);
+			  }
+			  System.out.println();  // O(1)
+			  
+			  							O(2 + n) => O(n)
+			  (cost of algorithm grows linear)	=> ( we drop the 2 to simplify
+			  										because the cost of this 
+			  										algorithm grows linearly
+			  										at the direct size of our 
+			  										input(loop) )
+			  										
+			  										
+			* for (int number: numbers) {  // O(n)
+			  	System.out.println(numbers);
+			  }
+			  for (int number: numbers) {  // O(n)
+			  	System.out.println(numbers);
+			  }
+			  			O(2n) => O(n)
+			  	- this example we drop the constant because all we need here is an
+			  	approximation of the cost of this algorithm relative to its input.
+			  	so (n) or (2n) still represents a linear growth.
+			  	
+			  	- this would still be the same if there was two parameters,
+			  	2 different arrays. lets say O(n)+ O(m) => O(n) because we simplify
+			  	this because the run time of this method increases linearly.
+		   ------------------------------------------------------------------------
+		   
+		   
+	O(nˆ2) - Quadratic. As (n * n) represent the size of the input. as (n) grows, so does the cost of this input. 
+			
+		   - algorthms that grow in O(n squared) get slower and slower.
+
+				   							example
+		   ------------------------------------------------------------------------
+		    Loops inside of loops
+		    
+		    * for (int first : number) {   // O(n)
+		     	for (int second : nums) {  // O(n)
+		     		System.out.println(first + ", " + second);
+		     	}
+			  }
+			
+			* 	for (int first : number) {   // O(n)
+					System.out.println(number);
+				}
+				
+				for (int first : number) {   // O(n)
+		     		for (int second : nums) {  // O(n)
+		     			System.out.println(first + ", " + second);
+		     	}
+			  }
+			  
+			  	O(n + nˆ2) => O(nˆ2)
+			 we can simply this because the square of n is always greater than the
+			 number itself. In this expression N squared always grows faster than
+			 n. We use Big O notion to understand how much the cost of an algorithm
+			 increases all we need is an approximation not as an exact value. So
+			 we can drop n and conclude that this method runs in O(n squared).
+			 
+			 
+			* for (int first : number) {   // O(n)
+		     	for (int second : nums) {  // O(n)
+		     		for (int second : nums) {  // O(n)
+		     			System.out.println(first + ", " + second + ", " + third);
+		     		}
+		     	}
+			  }
+			  		O(nˆ3) - n cubed will be slower than n squared.
+		   ------------------------------------------------------------------------
+		   
+	O(log n) - Logarithmic. Logarithmic curve slow down at some point.
+	
+		- Logarithmic time is more efficient and more scalable than an algorithm that is linear or quadratic.
+		
+		- Binary search: starts off in the middle of a sorted array and looks to see if its smaller or larger
+						 than the value your looking for. cutting the search in half each time.
+						 A 1 million item array can be found in 19 comparisons.
+	
+	
+	
+	O(2ˆn) - Exponential. O(2 raised to the n power). Exponential is the opposite of logarithmic growth. the exponential curve grows faster and faster.
+	
+		- Exponential is not scalable at all. It will become very slow very soon.
+		
+		
+		
+===================================================================================================================================
+													Space Complexity O(x)
+===================================================================================================================================		
+		
+===================================================================================================================================
+													ARRAY [0]
+===================================================================================================================================
+
+- array are used to story items sequentially.
+
+- accessing an array is super fast array[index]
+
+X - array have a fixed length and adding/removing to them, they have to be resized.
+	if it gets too large, its better to used a Linked List
+	
+	
+	
+	look up for an array is O(1)
+	
+	insert for any array is O(n), directly correcilates to the size of the array and it grows linear.
+	
+	delete is an O(n)
+===================================================================================================================================
+													LINKED LIST 
+===================================================================================================================================	
+
+- linked list can grow and shrink really quickly
+
+X - accessing them by its index is slow.
+
