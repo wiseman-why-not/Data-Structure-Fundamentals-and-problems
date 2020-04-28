@@ -1,6 +1,7 @@
 package string;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class CheckPermutation {
@@ -22,9 +23,17 @@ public class CheckPermutation {
 		System.out.println(checkPermutation("abc", "cab"));
 		System.out.println("=======================");
 		System.out.println(checkPermutation("abc", "acd"));
+		System.out.println("=======================");
+		System.out.println(permutation("abc", "abc"));
+		System.out.println(permutation("abc", "acb"));
+		System.out.println(permutation("abc", "bac"));
+		System.out.println(permutation("abc", "bca"));
+		System.out.println(permutation("abc", "cba"));
+		System.out.println(permutation("abc", "cab"));
 		
 	}
 	
+	// my solution
 	public static boolean checkPermutation(String str1, String str2) {
 		char[] charArr1 = str1.toCharArray();
 		char[] charArr2 = str2.toCharArray();
@@ -47,5 +56,20 @@ public class CheckPermutation {
 			return false;
 		}
 	}
-
+	
+	// book solution
+	
+	// #1
+	public static String sort(String str) {
+		char[] content = str.toCharArray();
+		Arrays.sort(content);
+		return new String(content);
+	}
+	public static boolean permutation(String s, String t) {
+		if (s.length() != t.length()) {
+			return false;
+		}
+		return sort(s).equals(sort(t) );
+	}
+	
 }
