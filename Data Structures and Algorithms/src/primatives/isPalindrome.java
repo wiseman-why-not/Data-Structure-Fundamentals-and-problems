@@ -23,6 +23,7 @@ public class isPalindrome {
 		// we take log10 because we want to know how many times we want to multiply 10 by to get the length of this number. this helpful to know how many digits
 		// because we will use this to generate a mask later to chop of items.
 		double log = Math.log10(x); // log10(12321) = 4.09. also the amount of times we need to raise 10 by to get to our number. 
+		// get the total amount of digits to use in our loop.
 		// we want to take the floor of that number because its the closest number to that integer that is less our exact log number. we add 1 to get the amount of digits
 		int totalDigits = (int)(Math.floor(log)) + 1; // (Math.floor(4.09)) = 4; 4+1 = 5.00 cast it to an int. this will get us the total amount of digits in our number.
 		int mask = (int) Math.pow(10, totalDigits - 1); // we raise 10 to the 4th power because that will give us 10,000
